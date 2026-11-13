@@ -1,46 +1,37 @@
-﻿using System;
-using System.IO;
-
-namespace ConsoleApp32_Algorytmy_Zadania
+﻿namespace ConsoleApp21
 {
     internal class Program
     {
-        static unsafe void Main(string[] args)
+        static void Main(string[] args)
         {
-            string tekst = "Zorro lubi C#";
-            int klucz = 3;
+            // Operator warunkowy (ternary)
+            int age = 20;
+            string status = age >= 18 ? "pełnoletni" : "niepełnoletni";
 
-            Console.WriteLine("--- KROKI 1-4: Szyfrowanie ---");
+            // ?? - null-coalescing
+            string? name = null;
+            string display = name ?? "Anonim";
 
-            foreach (char znak in tekst)
-            {
-                if (char.IsLetter(znak))
-                {
-                    int baza = char.IsUpper(znak) ? 65 : 97;
-                    int pozycja = znak - baza;
-                    int nowaPozycja = (pozycja + klucz) % 26;
-                    char nowyZnak = (char)(baza + nowaPozycja);
+            // ??= - przypisz tylko gdy null
+            name ??= "Domyślna";
 
-                    Console.WriteLine($"{znak} -> {nowyZnak}");
-                }
-            }
+            // ?. - null-conditional
+            int? len = name?.Length;
 
-            Console.WriteLine("--- KROK 5: Adresowanie wskaźnikowe ---");
-            char[] tablicaBazowa = "ABCDEFGHIJKLMNOPQRSTU".ToCharArray();
-            int przesuniecie = 5;
-            string nazwaPliku = "wynik.txt";
-
-            fixed (char* wskaznikNaBaze = tablicaBazowa)
-            {
-                void* baza = wskaznikNaBaze;
-                char* wynikWskaznik = (char*)baza + przesuniecie;
-                char zapisanyZnak = *wynikWskaznik;
-
-                File.WriteAllText(nazwaPliku, zapisanyZnak.ToString());
-
-                Console.WriteLine($"[Krok 5] Znak pod nowym adresem: {*wynikWskaznik}");
-                Console.WriteLine($"[Krok 6] Znak '{zapisanyZnak}' został zapisany do pliku: {Path.GetFullPath(nazwaPliku)}");
-            }
+            Console.WriteLine($"status: {status}");
+            Console.WriteLine($"display: {display}");
+            Console.WriteLine($"name: {name}");
+            Console.WriteLine($"len: {len}");
         }
-    }
+        bool a = true, b = false;
+
+       // bool and = a && b;  // false 
+    }   // bool or = a || b;  // true 
+        // bool not = !a;     // false 
+
+// Short - circuit evaluation
+//#if (obj != null && obj.IsValid)
+                   
+        // bezpieczne - druga część nie wykona się,
+        // gdy obj == null 
 }
