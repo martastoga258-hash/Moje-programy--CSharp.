@@ -1,37 +1,212 @@
-﻿namespace ConsoleApp21
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+
+namespace ConsoleApp2
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            // Operator warunkowy (ternary)
-            int age = 20;
-            string status = age >= 18 ? "pełnoletni" : "niepełnoletni";
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Hello, World!");
 
-            // ?? - null-coalescing
-            string? name = null;
-            string display = name ?? "Anonim";
+			var ages = new Dictionary<string, int>();
+			ages.Add("Bartek", 30);
+            ages.Add("Anna", 25);
 
-            // ??= - przypisz tylko gdy null
-            name ??= "Domyślna";
+			if (ages.TryGetValue("Anna", out int age))
+			{
+				Console.WriteLine(age);  // 25
+			}
 
-            // ?. - null-conditional
-            int? len = name?.Length;
+			foreach (var pair in ages)
+			{
+				Console.WriteLine($"{pair.Key}: {pair.Value}");
+			}
 
-            Console.WriteLine($"status: {status}");
-            Console.WriteLine($"display: {display}");
-            Console.WriteLine($"name: {name}");
-            Console.WriteLine($"len: {len}");
-        }
-        bool a = true, b = false;
+			// Interaktywne pobranie oceny dla Bartka (1-6)
+			Console.Write("Podaj ocenę dla Bartka (1-6): ");
+			if (int.TryParse(Console.ReadLine(), out int ocena))
+			{
+				switch (ocena)
+				{
+					case 1:
+						Console.WriteLine("Egzamin niezaliczony");
+						break;
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+					case 6:
+						Console.WriteLine("Egzamin zaliczony!");
+						break;
+					default:
+						Console.WriteLine("Nie ma takiej oceny");
+						break;
+				}
+			}
+			else
+			{
+                Console.WriteLine("Wprowadzono nieprawidłowe dane.");
+			}
+uusing System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
-       // bool and = a && b;  // false 
-    }   // bool or = a || b;  // true 
-        // bool not = !a;     // false 
+namespace ConsoleApp2
+{
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Hello, World!");
 
-// Short - circuit evaluation
-//#if (obj != null && obj.IsValid)
-                   
-        // bezpieczne - druga część nie wykona się,
-        // gdy obj == null 
+			var ages = new Dictionary<string, int>();
+			ages.Add("Bartek", 30);
+			ages.Add("Anna", 25);
+
+			if (ages.TryGetValue("Anna", out int age))
+			{
+				Console.WriteLine(age);  // 25
+			}
+
+			foreach (var pair in ages)
+			{
+				Console.WriteLine($"{pair.Key}: {pair.Value}");
+			}
+
+			// Interaktywne pobranie oceny dla Bartka (1-6)
+			Console.Write("Podaj ocenę dla Bartka (1-6): ");
+			if (int.TryParse(Console.ReadLine(), out int ocena))
+			{
+				switch (ocena)
+				{
+					case 1:
+						Console.WriteLine("Egzamin niezaliczony");
+						break;
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+					case 6:
+						Console.WriteLine("Egzamin zaliczony!");
+						break;
+					default:
+						Console.WriteLine("Nie ma takiej oceny");
+						break;
+				}
+			}
+			else
+			{
+				Console.WriteLine("Wprowadzono nieprawidłowe dane.");
+			}
+
+			/*
+			Option Strict Explicit On
+			On
+			Option 
+			''' <summary>
+			''' Główny moduł aplikacji konsolowej.
+			''' Zawiera punkt wejścia <see cref="Main"/>.
+			''' </summary>
+			Module Program
+
+				''' <summary>
+				''' Punkt wejścia aplikacji konsolowej.
+				''' Wypisuje komunikat powitalny na standardowe wyjście konsoli.
+				''' </summary>
+				''' <param name="args">Tablica argumentów przekazanych z wiersza poleceń.</param>
+				''' <remarks>
+				''' Usunięto duplikaty i niepowiązane fragmenty kodu (C/C++ oraz powtórzenia).
+				''' Zachowano jedną, poprawną definicję modułu i metody Main.
+				''' </remarks>
+				Sub Main(ByVal args As String())
+					' Wyświetlenie komunikatu powitalnego na konsoli.
+					Console.WriteLine("Hello World!")
+				End Sub
+
+			End Module
+			*/
+		}
+	}
+      }  ing System;
+          using System.Collections.Generic;
+         using System.Runtime.InteropServices;
+
+namespace ConsoleApp2
+{
+	internal class program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Hello, World!");
+
+			var ages = new Dictionary<string, int>();
+			ages.Add("Bartek", 30);
+			ages.Add("Anna", 25);
+
+			if (ages.TryGetValue("Anna", out int age))
+			{
+				Console.WriteLine(age);  // 25
+			}
+
+			foreach (var pair in ages)
+			{
+				Console.WriteLine($"{pair.Key}: {pair.Value}");
+			}
+
+			// Interaktywne pobranie oceny dla Bartka (1-6)
+			Console.Write("Podaj ocenę dla Bartka (1-6): ");
+			if (int.TryParse(Console.ReadLine(), out int ocena))
+			{
+				switch (ocena)
+				{
+					case 1:
+						Console.WriteLine("Egzamin niezaliczony");
+						break;
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+					case 6:
+						Console.WriteLine("Egzamin zaliczony!");
+						break;
+					default:
+						Console.WriteLine("Nie ma takiej oceny");
+						break;
+				}
+			}
+			else
+			{
+				Console.WriteLine("Wprowadzono nieprawidłowe dane.");
+			}
+			/*
+Option Strict Explicit On
+On
+Option 
+''' <summary>
+''' Główny moduł aplikacji konsolowej.
+''' Zawiera punkt wejścia <see cref="Main"/>.
+''' </summary>
+Module Program
+
+	''' <summary>
+	''' Punkt wejścia aplikacji konsolowej.
+	''' Wypisuje komunikat powitalny na standardowe wyjście konsoli.
+	''' </summary>
+	''' <param name="args">Tablica argumentów przekazanych z wiersza poleceń.</param>
+	''' <remarks>
+	''' Usunięto duplikaty i niepowiązane fragmenty kodu (C/C++ oraz powtórzenia).
+	''' Zachowano jedną, poprawną definicję modułu i metody Main.
+	''' </remarks>
+	Sub Main(ByVal args As String())
+		' Wyświetlenie komunikatu powitalnego na konsoli.
+		Console.WriteLine("Hello World!")
+	End Sub
+
+End Module
+			*/
+		}
+
+	}
 }
